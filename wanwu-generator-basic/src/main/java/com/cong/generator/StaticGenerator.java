@@ -15,7 +15,7 @@ import java.nio.file.StandardCopyOption;
  * @author 86188
  * @date 2023/11/11
  */
-public class StaticGenerator {
+public class  StaticGenerator {
     public static void main(String[] args) {
         String projectPath = System.getProperty("user.dir");
         //输入路径

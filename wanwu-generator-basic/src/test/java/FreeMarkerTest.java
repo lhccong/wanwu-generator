@@ -7,10 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * FreeMarker 学习测试
@@ -30,7 +27,7 @@ public class  FreeMarkerTest {
 
         // 创建模板对象，加载指定模板
         Template template = configuration.getTemplate("myweb.html.ftl");
-
+        template.setLocale(new Locale("zh_CN"));
         // 创建数据模型
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("currentYear", 2023);

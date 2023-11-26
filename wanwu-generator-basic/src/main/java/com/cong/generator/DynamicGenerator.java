@@ -5,10 +5,8 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.util.Locale;
 
 /**
  * 动态文件生成
@@ -19,7 +17,7 @@ import java.io.Writer;
 public class DynamicGenerator {
 
     public static void main(String[] args) throws IOException, TemplateException {
-        String projectPath = System.getProperty("user.dir") + File.separator +"wanwu-generator-basic";
+        String projectPath = System.getProperty("user.dir");
         String inputPath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputPath = projectPath + File.separator + "MainTemplate.java";
         MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
@@ -47,15 +45,16 @@ public class DynamicGenerator {
         configuration.setDirectoryForTemplateLoading(templateDir);
 
         // 设置模板文件使用的字符集
-        configuration.setDefaultEncoding("utf-8");
+        configuration.setDefaultEncoding("UTF-8");
         configuration.setNumberFormat("0.######");
+        configuration.setEncoding(new Locale("zh_CN"),"utf-8");
 
         // 创建模板对象，加载指定模板
         String templateName = new File(inputPath).getName();
         Template template = configuration.getTemplate(templateName);
 
         // 生成
-        Writer out = new FileWriter(outputPath);
+        Writer out = new OutputStreamWriter(new FileOutputStream(outputPath), "UTF-8");
         template.process(model, out);
 
         // 生成文件后别忘了关闭哦
