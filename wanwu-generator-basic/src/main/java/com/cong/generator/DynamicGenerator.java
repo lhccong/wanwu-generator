@@ -53,7 +53,7 @@ public class DynamicGenerator {
         String templateName = new File(inputPath).getName();
         Template template = configuration.getTemplate(templateName);
 
-        // 生成
+        // 生成（修复中文乱码问题）
         Writer out = new OutputStreamWriter(new FileOutputStream(outputPath), "UTF-8");
         template.process(model, out);
 
