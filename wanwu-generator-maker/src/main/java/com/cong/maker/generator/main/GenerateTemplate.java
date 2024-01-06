@@ -21,7 +21,7 @@ public abstract class GenerateTemplate {
         Meta meta = MetaManager.getMeta();
         //输出的根路径
         String propertyPath = System.getProperty("user.dir");
-        String outputPath = propertyPath + File.separator + "generated";
+        String outputPath = propertyPath + File.separator + "generated" + File.separator + meta.getName();;
 
         if (!FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
