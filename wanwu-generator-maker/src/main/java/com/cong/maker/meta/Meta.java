@@ -101,6 +101,22 @@ public class Meta {
              * 生成类型
              */
             private String generateType;
+
+            /**
+             * 条件
+             */
+            private String condition;
+
+            /**
+             * 组键
+             */
+            private String groupKey;
+            /**
+             * 组名称
+             */
+            private String groupName;
+            private List<FileInfo> files;
+
         }
     }
 
@@ -147,6 +163,29 @@ public class Meta {
              * ABBR公司
              */
             private String abbr;
+            /**
+             * 组键
+             */
+            private String groupKey;
+            /**
+             * 组名称
+             */
+            private String groupName;
+
+            /**
+             * 模型
+             */
+            private List<ModelInfo> models;
+
+            /**
+             * 条件
+             */
+            private String condition;
+
+            /**
+             * 所有 args str
+             */
+            private String allArgsStr;
         }
     }
 }

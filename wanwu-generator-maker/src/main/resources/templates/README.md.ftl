@@ -19,12 +19,13 @@ generator <命令> <选项参数>
 示例命令：
 
 ```
-generator generate <#list modelConfig.models as modelInfo>-${modelInfo.fieldName} </#list>
+generator generate <#list modelConfig.models as modelInfo><#if modelInfo.abbr??>-${modelInfo.abbr}</#if> </#list>
 ```
 
 ## 参数说明
 
 <#list modelConfig.models as modelInfo>
+        <#if modelInfo.fieldName??>
 ${modelInfo?index + 1}）${modelInfo.fieldName}
 
 类型：${modelInfo.type}
@@ -37,5 +38,5 @@ ${modelInfo?index + 1}）${modelInfo.fieldName}
 
 <#if modelInfo.abbr??>缩写： -${modelInfo.abbr}</#if>
 
-
+</#if>
 </#list>

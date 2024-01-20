@@ -18,16 +18,25 @@
         "generateType": "dynamic"
       },
       {
-        "inputPath": ".gitignore",
-        "outputPath": ".gitignore",
-        "type": "file",
-        "generateType": "static"
-      },
-      {
-        "inputPath": "README.md",
-        "outputPath": "README.md",
-        "type": "file",
-        "generateType": "static"
+        "groupKey": "git",
+        "groupName": "开源",
+        "type": "group",
+        "condition": "needGit",
+        "files": [
+          {
+            "inputPath": ".gitignore",
+            "outputPath": ".gitignore",
+            "type": "file",
+            "generateType": "static",
+            "condition": "needGit"
+          },
+          {
+            "inputPath": "README.md",
+            "outputPath": "README.md",
+            "type": "file",
+            "generateType": "static"
+          }
+        ]
       }
     ]
   },
@@ -38,7 +47,7 @@
         "type": "boolean",
         "description": "是否生成.gitignore文件",
         "defaultValue": true
-       },
+      },
       {
         "fieldName": "loop",
         "type": "boolean",
@@ -47,18 +56,27 @@
         "abbr": "l"
       },
       {
-        "fieldName": "author",
-        "type": "String",
-        "description": "作者注释",
-        "defaultValue": "cong",
-        "abbr": "a"
-      },
-      {
-        "fieldName": "outputText",
-        "type": "String",
-        "description": "输出信息",
-        "defaultValue": "sum = ",
-        "abbr": "o"
+        "groupKey": "mainTemplate",
+        "groupName": "主模板",
+        "type": "MainTemplate",
+        "description": "生成核心模板文件",
+        "condition": "loop",
+        "models":[
+        {
+          "fieldName": "author",
+          "type": "String",
+          "description": "作者注释",
+          "defaultValue": "cong",
+          "abbr": "a"
+        },
+        {
+          "fieldName": "outputText",
+          "type": "String",
+          "description": "输出信息",
+          "defaultValue": "sum = ",
+          "abbr": "o"
+        }
+      ]
       }
     ]
   }

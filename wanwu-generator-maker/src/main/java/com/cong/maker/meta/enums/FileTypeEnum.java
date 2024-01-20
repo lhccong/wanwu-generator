@@ -11,6 +11,7 @@ public enum FileTypeEnum {
      * 文件类型
      */
     DIR("目录", "dir"),
+    GROUP("文件组", "group"),
     FILE("文件", "file");
     private final String text;
 
